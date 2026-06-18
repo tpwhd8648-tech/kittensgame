@@ -3966,7 +3966,7 @@ dojo.declare("com.nuclearunicorn.game.ui.GamePage", null, {
 	},
 
 	timeAccelerationRatio: function() {
-		return this.time.isAccelerated ? 0.5 : 0;
+		return 99;
 	},
 
 	/**
@@ -5734,4 +5734,3 @@ dojo.declare("com.nuclearunicorn.game.ui.GamePage", null, {
 		return [color, variety];
 	}
 });
-
