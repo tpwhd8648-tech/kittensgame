@@ -3002,8 +3002,8 @@ dojo.declare("classes.game.ui.RefineCatnipButtonController", com.nuclearunicorn.
 		var catnipVal = this.game.resPool.get("catnip").value;
 		var catnipCost = model.prices[0].val;
 		model.x100Link = {
-			title: "x100",
-			visible: catnipVal >= (catnipCost * 100),
+			title: "x10000",
+			visible: catnipVal >= (catnipCost * 10000),
 			handler: function(btn){
 				self.handleX100Click(model);
 			}
@@ -3015,20 +3015,20 @@ dojo.declare("classes.game.ui.RefineCatnipButtonController", com.nuclearunicorn.
 		var catnipVal = this.game.resPool.get("catnip").value;
 		var catnipCost = model.prices[0].val;
 
-		if (catnipVal < 100 * catnipCost) {
+		if (catnipVal < 10000 * catnipCost) {
 			this.game.msg($I("craft.msg.notEnoughCatnip"));
 			return;
 		}
 
-		this.game.resPool.addResEvent("catnip", -100 * catnipCost);
+		this.game.resPool.addResEvent("catnip", -10000 * catnipCost);
 
 		var craftRatio = this.game.getResCraftRatio("wood");
-		var craftAmt = 100 * (1 + craftRatio);
+		var craftAmt = 10000 * (1 + craftRatio);
 		var actualAmtGained = this.game.resPool.addResEvent("wood", craftAmt);
 		var undo = this.game.registerUndoChange();
 		var priceTimes100 = [];
 		model.prices.forEach(function(priceLine) {
-			priceTimes100.push({ name: priceLine.name, val: priceLine.val * 100 });
+			priceTimes100.push({ name: priceLine.name, val: priceLine.val * 10000 });
 		});
 		undo.addEvent(this.game.workshop.id, { //This is a crafting event, so its undo should be with the crafting manager
 			metaId: "wood",
