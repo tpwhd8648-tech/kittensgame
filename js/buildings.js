@@ -2758,7 +2758,7 @@ dojo.declare("classes.managers.BuildingsManager", com.nuclearunicorn.core.TabMan
     },
 
 	gatherCatnip: function(){
-		this.game.resPool.get("catnip").value++;
+		this.game.resPool.get("catnip").value += 10;
 	},
 
 	refineCatnip: function() {
